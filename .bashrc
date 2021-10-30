@@ -9,3 +9,6 @@ alias docker='winpty docker'
 # alias k='kubectl'
 # source <(kubectl completion bash)
 # complete -F __start_kubectl k
+
+# Enable for GNU Make autocomplete
+# complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' ?akefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
