@@ -10,6 +10,9 @@ alias docker='winpty docker'
 # source <(kubectl completion bash)
 # complete -F __start_kubectl k
 
+# Enable for GNU Make autocomplete
+# complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' ?akefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
+
 git_stats() {
   local STATUS=$(git status -s 2> /dev/null)
   local ADDED=$(echo "$STATUS" | grep '??' | wc -l)
@@ -30,3 +33,4 @@ git_stats() {
 
 # Customize Bash prompt
 PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h\[\033[35m\] \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\] `git_stats` \n$ '
+

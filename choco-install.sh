@@ -26,3 +26,4 @@ choco install -y zulu11
 choco install -y maven
 choco install -y nodejs
 choco install -y vscode
+choco install make
