@@ -32,5 +32,5 @@ git_stats() {
 }
 
 # Customize Bash prompt
-PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h\[\033[35m\] \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\] `git_stats` \n$ '
+PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]\n\033[38;5;177m\u \[\033[37m\]at \033[38;5;208m\h \[\033[37m\]in \033[38;5;119m\w\[\033[36m\]`__git_ps1`\[\033[0m\] `git_stats` \n$ '
 
