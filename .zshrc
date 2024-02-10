@@ -1,7 +1,20 @@
 alias gst='git status'
 alias gck='git checkout'
+alias gck='git checkout'
+alias gckm='git checkout $(git branch | cut -c 3- | grep -E "^master$|^main$")'
+alias gp='git pull'
+alias jpi='git commit -m "just pushing it" && git push'
+alias ds='docker ps'
+alias c='clear'
+
+# For Linux machines with Gnome
+alias pbcopy='xsel --clipboard --input'
+alias open='nautilus'
+
+# Google Cloud shortcuts
 alias klocal='kubectl config use-context docker-desktop'
 alias tkn='gcloud auth print-access-token | pbcopy'
+
 
 function idea() {
     open -na "IntelliJ IDEA.app" --args "$@"
