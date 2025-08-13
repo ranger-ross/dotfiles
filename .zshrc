@@ -11,9 +11,36 @@ alias c='clear'
 alias pbcopy='xsel --clipboard --input'
 alias open='nautilus'
 
-# Google Cloud shortcuts
-alias klocal='kubectl config use-context docker-desktop'
-alias tkn='gcloud auth print-access-token | pbcopy'
+function gr() {
+  local remote_url=$(git config --get remote.origin.url)
+
+  if [[ -z "$remote_url" ]]; then
+    echo "Error: No remote 'origin' found."
+    return 1
+  fi
+
+  # Check and handle SSH vs. HTTPS URLs
+  if [[ "$remote_url" =~ ^git@ ]]; then
+    # Convert SSH to HTTPS
+    remote_url=${remote_url/git@/https://}
+    remote_url=${remote_url/:/\/}
+  fi
+
+  # Remove the .git suffix
+  remote_url=${remote_url/.git//}
+
+  # Use 'xdg-open' for Linux, 'open' for macOS, and 'start' for Windows (Git Bash)
+  if command -v xdg-open > /dev/null; then
+    xdg-open "$remote_url"
+  elif command -v open > /dev/null; then
+    open "$remote_url"
+  elif command -v start > /dev/null; then
+    start "$remote_url"
+  else
+    echo "Error: Could not find a suitable command to open a browser."
+    return 1
+  fi
+}
 
 
 function idea() {
