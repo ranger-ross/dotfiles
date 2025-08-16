@@ -70,8 +70,6 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 alias k=kubectl
 complete -F __start_kubectl k
-
-# source <(kubetpl completion zsh)
 source <(kubectl completion zsh)
 
 _kubecontext() {
@@ -87,8 +85,6 @@ _kubecontext() {
         printf "] "
     fi
 }
-
-# alias idea='open -na "IntelliJ IDEA.app" --args "$@"'
 
 eval "$(direnv hook bash)"
 
@@ -128,23 +124,3 @@ function __proxy-db() {
 	sleep 1.5
 	echo "\n\nCloud SQL proxy started on $PROXY_PORT for $DB_NAME in $PROJECT_ID. Your access token has been copied to your clipboard\n\n"
 }
-
-
-# function proxy-notifier-db-nonprod() {
-# 	__proxy-db 'example-db1' 'example-project' 6700
-# }
-
-
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-
-function pod() {
-    __ub-shell "$@"
-}
-
-# export JAVA8_HOME='/Users/s119516/Library/Java/JavaVirtualMachines/azul-1.8.0_302/Contents/Home'
-# export JAVA_HOME=$JAVA8_HOME
-
