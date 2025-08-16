@@ -100,27 +100,3 @@ fi
 
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
-
-UB_BASE_IMAGE=ubuntu
-function __ub-shell {
-    if [ -n "$1" ]; then
-        NAMESPACE=$1
-    else
-        echo "Namespace no specified, deploying to default namespace"
-        NAMESPACE="default"
-    fi
-    shift
-    kubectl run ub-shell --rm -it -n $NAMESPACE --image UB_BASE_IMAGE -- bash
-}
-
-
-function __proxy-db() {
-	DB_NAME=$1
-	PROJECT_ID=$2
-	PROXY_PORT=$3
-	kill $(lsof -i :$PROXY_PORT -t)
-	cloud_sql_proxy  -quiet -instances=$PROJECT_ID":us-central1:$DB_NAME=tcp:$PROXY_PORT" -dir ~/tmp/ &
-	gcloud auth print-access-token --project=$PROJECT_ID | pbcopy
-	sleep 1.5
-	echo "\n\nCloud SQL proxy started on $PROXY_PORT for $DB_NAME in $PROJECT_ID. Your access token has been copied to your clipboard\n\n"
-}
