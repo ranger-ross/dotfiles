@@ -1,15 +1,54 @@
+EDITOR=/usr/bin/nvim
+
+# Prezto
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Lines configured by zsh-newuser-install
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/ross/.zshrc'
+
+fpath+=~/.zfunc
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+function v() {
+  if [ $# -eq 0 ]
+    then
+      nvim .
+  else 
+    nvim $@
+  fi
+}
+
+alias g='git'
 alias gst='git status'
 alias gck='git checkout'
-alias gck='git checkout'
-alias gckm='git checkout $(git branch | cut -c 3- | grep -E "^master$|^main$")'
 alias gp='git pull'
-alias jpi='git commit -m "just pushing it" && git push'
 alias ds='docker ps'
-alias c='clear'
-
-# For Linux machines with Gnome
 alias pbcopy='xsel --clipboard --input'
 alias open='nautilus'
+alias jpi='git commit -m "just pushing it" && git push'
+alias c='clear'
+alias gckm='git checkout $(git branch | cut -c 3- | grep -E "^master$|^main$")'
+alias gal='git add . && git status'
+alias gl='git log --oneline'
 
 function gr() {
   local remote_url=$(git config --get remote.origin.url)
@@ -42,61 +81,31 @@ function gr() {
   fi
 }
 
+# Local Cargo instance
+alias lc=/home/ross/projects/cargo/target/debug/cargo
+alias lcr=/home/ross/projects/cargo/target/release/cargo
 
-function idea() {
-    open -na "IntelliJ IDEA.app" --args "$@"
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
+# Disable autocorrect
+unsetopt correct
+
+# Override the default command not found handler.
+# Its sometimes slow because its trying to find the command on the internet. maybe?
+command_not_found_handle() {
+    echo "'$1' command not found" >&2
+    return 1
 }
 
-function ns() {kubectl config set-context $(kubectl config current-context) --namespace=$1}
+# pnpm
+export PNPM_HOME="/home/ross/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-#
-
- if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
- fi
-
-# eval `ssh-agent -s`
-#ssh-add ~/.ssh/id_rsa
-
-plugins=(git ssh-agent)
-
-
-autoload -U +X bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-complete -o nospace -C /usr/local/bin/terraform terraform
-
-alias k=kubectl
-complete -F __start_kubectl k
-source <(kubectl completion zsh)
-
-_kubecontext() {
-    export _KUBECLUSTER=$(kubectl config get-contexts --no-headers | grep '*' | awk '{ print $3 }')
-    export _KUBENAMESPACE=$(kubectl config get-contexts --no-headers | grep '*' | awk '{ print $5 }')
-    if [[ "$_KUBECLUSTER" != "" ]]; then
-        if [[ "$_KUBECLUSTER" =~ -prod ]]; then
-            printf "[kube:${BLINK}${FG_WHITE}${BG_RED}$_KUBECLUSTER${RESET}"
-        else
-            printf "[kube:${FG_CYAN}$_KUBECLUSTER${RESET}"
-        fi
-        printf "/${FG_RED}${_KUBENAMESPACE:-default}${RESET}"
-        printf "] "
-    fi
-}
-
-eval "$(direnv hook bash)"
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+# Make cursor a vertical line
+echo -en "\033[6 q"
 
