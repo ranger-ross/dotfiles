@@ -82,8 +82,8 @@ function gr() {
 }
 
 # Local Cargo instance
-alias lc=/home/ross/projects/cargo/target/debug/cargo
-alias lcr=/home/ross/projects/cargo/target/release/cargo
+alias lc=/home/$USER/projects/cargo/target/debug/cargo
+alias lcr=/home/$USER/projects/cargo/target/release/cargo
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
