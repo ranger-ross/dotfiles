@@ -81,5 +81,9 @@
   "bar.clock.showIcon": true,
   "menus.dashboard.shortcuts.right.shortcut3.command": "custom-screenshot.sh",
   "bar.launcher.icon": "",
-  "bar.launcher.autoDetectIcon": true
+  "bar.launcher.autoDetectIcon": true,
+  "theme.bar.menus.enableShadow": false,
+  "menus.transitionTime": 125,
+  "menus.transition": "crossfade",
+  "hyprpanel.restartCommand": "hyprpanel -q; hyprpanel"
 }
