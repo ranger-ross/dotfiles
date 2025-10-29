@@ -1,5 +1,7 @@
 EDITOR=/usr/bin/nvim
 
+PATH="$PATH:$HOME/.local/bin"
+
 # Prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
