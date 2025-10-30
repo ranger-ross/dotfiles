@@ -73,7 +73,7 @@
   "menus.dashboard.shortcuts.left.shortcut2.tooltip": "Open Terminal",
   "menus.dashboard.shortcuts.left.shortcut2.icon": "",
   "menus.dashboard.shortcuts.left.shortcut3.command": "flatpak run  com.discordapp.Discord --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto",
-  "menus.dashboard.shortcuts.left.shortcut4.command": "walker",
+  "menus.dashboard.shortcuts.left.shortcut4.command": "vicinae",
   "menus.dashboard.shortcuts.left.shortcut1.icon": "",
   "menus.dashboard.shortcuts.left.shortcut1.command": " nautilus",
   "bar.clock.format": "%a %b %d  %I:%M %p",
