@@ -20,9 +20,9 @@
         "media"
       ],
       "right": [
-        "volume",
         "network",
         "bluetooth",
+        "volume",
         "battery",
         "systray",
         "clock",
@@ -85,5 +85,10 @@
   "theme.bar.menus.enableShadow": false,
   "menus.transitionTime": 125,
   "menus.transition": "crossfade",
-  "hyprpanel.restartCommand": "hyprpanel -q; hyprpanel"
+  "hyprpanel.restartCommand": "hyprpanel -q; hyprpanel",
+  "bar.network.label": false,
+  "bar.bluetooth.label": false,
+  "bar.battery.label": true,
+  "bar.notifications.show_total": true,
+  "bar.notifications.hideCountWhenZero": true
 }
