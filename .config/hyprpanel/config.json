@@ -17,16 +17,15 @@
         "windowtitle"
       ],
       "middle": [
-        "media"
+        "clock",
+        "notifications"
       ],
       "right": [
+        "systray",
         "network",
         "bluetooth",
         "volume",
         "battery",
-        "systray",
-        "clock",
-        "notifications",
         "dashboard"
       ]
     },
