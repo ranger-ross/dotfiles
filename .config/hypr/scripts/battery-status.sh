@@ -21,8 +21,8 @@ BATTERY_PATH=$(upower -e | grep 'battery' | head -n 1)
 
 # Check if a battery device was found
 if [ -z "$BATTERY_PATH" ]; then
-    echo "No battery found."
-    exit 1
+    echo "" # Hide the indicator
+    exit 0
 fi
 
 # Get the relevant data from upower
