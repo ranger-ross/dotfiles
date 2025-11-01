@@ -124,4 +124,5 @@ return {
       'rcarriga/nvim-notify',
     },
   },
+  { 'hiphish/rainbow-delimiters.nvim' },
 }
