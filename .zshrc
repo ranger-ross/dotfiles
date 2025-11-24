@@ -108,6 +108,11 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# Keyboard layout switching on linux
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+
 # Make cursor a vertical line
 echo -en "\033[6 q"
 
