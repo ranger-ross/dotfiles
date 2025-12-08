@@ -22,7 +22,6 @@ vim.keymap.set('i', '<S-Tab>', 'copilot#Accept("\\<CR>")', {
 vim.keymap.set('n', '<C-S>', '<cmd>:wa<CR>')
 
 return {
-  'github/copilot.vim',
   {
     'ibhagwan/fzf-lua',
     -- optional for icon support
