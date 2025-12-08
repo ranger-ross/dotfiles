@@ -276,6 +276,9 @@ require('lazy').setup({
           lsp_references = {
             fname_width = 100,
           },
+          find_files = {
+            find_command = { 'fd', '--type', 'f', '--hidden', '--exclude', '.git' },
+          },
         },
         extensions = {
           ['ui-select'] = {
