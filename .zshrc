@@ -44,13 +44,17 @@ alias gst='git status'
 alias gck='git checkout'
 alias gp='git pull'
 alias ds='docker ps'
-alias pbcopy='xsel --clipboard --input'
-alias open='nautilus'
 alias jpi='git commit -m "just pushing it" && git push'
 alias c='clear'
 alias gckm='git checkout $(git branch | cut -c 3- | grep -E "^master$|^main$")'
 alias gal='git add . && git status'
 alias gl='git --no-pager log --oneline -n 20'
+
+if [[ $(uname) == "Linux" ]]; then
+  alias open='nautilus'
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
 
 function gr() {
   local remote_url=$(git config --get remote.origin.url)
@@ -86,9 +90,6 @@ function gr() {
 # Local Cargo instance
 alias lc=/home/$USER/projects/cargo/target/debug/cargo
 alias lcr=/home/$USER/projects/cargo/target/release/cargo
-
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
 
 # Disable autocorrect
 unsetopt correct
