@@ -263,6 +263,7 @@ require('lazy').setup({
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         defaults = {
+          file_ignore_patterns = { '^vendor/' },
           layout_strategy = 'vertical',
           mappings = {
             i = {
