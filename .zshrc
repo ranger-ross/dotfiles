@@ -30,10 +30,22 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-if [[ $(uname) == "Darwin" ]]; then
+
+# Configure autosuggestions
+function __bind_autosuggestion_keys() {
+  bindkey '^I'   autosuggest-accept  # tab          | autosuggest
+  bindkey '^[[Z' complete-word       # shift + tab  | complete
+}
+
+if [[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
   source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  bindkey '^I' autosuggest-accept
+  __bind_autosuggestion_keys
+elif [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  __bind_autosuggestion_keys
 fi
+
+unset __bind_autosuggestion_keys
 
 function v() {
   if [ $# -eq 0 ]
