@@ -1,0 +1,95 @@
+window#waybar {
+    background: rgba(43, 48, 59, 0.5);
+    border-bottom: 2px solid rgba(100, 114, 125, 0.5);
+    color: #ffffff;
+}
+
+window#waybar.hidden {
+    opacity: 0.0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: #ffffff;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+    background: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#workspaces button.active {
+    background-color: rgba(145, 168, 186, 0.15);
+}
+
+#window {
+    padding: 10px;
+    font-weight: bold;
+}
+
+#clock {
+    font-size: 18px;
+    padding-bottom: 0;
+    padding: 0 10px;
+    margin: 4px 2px; 
+    border-radius: 3px;
+    background-color: rgba(145, 168, 186, 0.15);
+}
+
+
+#tray {
+    padding: 0 10px;
+    margin: 4px 2px; 
+    border-radius: 3px;
+    background-color: rgba(145, 168, 186, 0.15);
+}
+
+#network {
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 3px;
+    background-color: rgba(145, 168, 186, 0.15);
+}
+
+#network.disconnected {
+    background: #f53c3c;
+}
+
+#pulseaudio {
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 3px;
+    background-color: rgba(145, 168, 186, 0.15);
+}
+
+#pulseaudio.muted {
+    background-color: rgba(256, 56, 56, 0.35);
+}
+
+#custom-screenshot {
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 3px;
+    background-color: rgba(145, 168, 186, 0.15);
+}
+
+#custom-picker {
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 3px;
+    background-color: rgba(145, 168, 186, 0.15);
+}
+
+#custom-control-center {
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 3px;
+    background-color: rgba(145, 168, 186, 0.15);
+}

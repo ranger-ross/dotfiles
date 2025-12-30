@@ -1,0 +1,90 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "network", "pulseaudio", "battery", "custom/screenshot", "custom/picker", "custom/control-center"],
+    // Modules configuration
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "hyprland/workspaces": {
+        "persistent-workspaces": {
+            "*": 5, // 5 workspaces by default on every monitor
+        }
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "rewrite": {
+            "tmux": "Kitty",
+            "(.*) - Brave": "Brave",
+            "(.*) Discord": "Discord"
+        },
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%a %b %d %I:%M %p}",
+        "on-click": "hyprctl dispatch exec '[float; size 80% 90%] gnome-calendar'"
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "states": [0,50],
+        "format-icons": ["", ""]
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "🖧",
+        "tooltip-format": " {ifname} via {gwaddr}",
+        "format-linked": " {ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠ {ifname}",
+        // TODO: better handling of non-wifi connections...
+        "on-click": "better-control --wifi"
+    },
+    "pulseaudio": {
+      "scroll-step": 5,
+      "format": "{icon}  {volume}%",
+      "format-bluetooth": " {icon} {volume}% {format_source}",
+      "format-bluetooth-muted": "  {icon} {format_source}",
+      "format-muted": "  {format_source}",
+      "format-source-muted": "",
+      "format-icons": {
+        "default": [
+          "",
+          "",
+          ""
+        ]
+      },
+      "on-click": "better-control --volume"
+    },
+    "custom/control-center": {
+        "format": "",
+        "on-click": "better-control"
+    },
+    "custom/screenshot": {
+        "format": "󰄀",
+        "on-click": "custom-screenshot.sh"
+    },
+    "custom/picker": {
+        "format": "",
+        "on-click": "hyprpicker --autocopy"
+    },
+}
