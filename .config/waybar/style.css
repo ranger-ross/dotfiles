@@ -73,6 +73,21 @@ window#waybar.hidden {
     background-color: rgba(256, 56, 56, 0.35);
 }
 
+#battery {
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 3px;
+    background-color: rgba(145, 168, 186, 0.15);
+}
+
+#battery.warning {
+    background-color: rgba(256, 213, 0, 0.35);
+}
+
+#battery.critical {
+    background-color: rgba(256, 56, 56, 0.35);
+}
+
 #custom-screenshot {
     padding: 0 10px;
     margin: 4px 2px;
