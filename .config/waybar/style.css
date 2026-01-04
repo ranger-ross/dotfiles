@@ -88,6 +88,10 @@ window#waybar.hidden {
     background-color: rgba(256, 56, 56, 0.35);
 }
 
+#battery.charging {
+    background-color: rgba(0, 256, 0, 0.35);
+}
+
 #custom-screenshot {
     padding: 0 10px;
     margin: 4px 2px;
