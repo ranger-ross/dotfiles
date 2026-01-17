@@ -50,6 +50,10 @@
                     "command": "swaync-client -cp && loginctl lock-session"
                 },
                 {
+                    "label": "󰤄",
+                    "command": "swaync-client -cp && systemctl suspend"
+                },
+                {
                     "label": "󰑓",
                     "command": "echo -e 'Yes\nNo' | vicinae dmenu --section-title 'Are you sure you want to reboot?' | grep -q 'Yes' && reboot"
                 },
