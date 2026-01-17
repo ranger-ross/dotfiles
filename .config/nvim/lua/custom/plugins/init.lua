@@ -124,4 +124,5 @@ return {
     },
   },
   { 'hiphish/rainbow-delimiters.nvim' },
+  { 'b0o/schemastore.nvim' },
 }

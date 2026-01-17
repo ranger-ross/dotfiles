@@ -510,6 +510,14 @@ require('lazy').setup({
             },
           },
         },
+        jsonls = {
+          settings = {
+            json = {
+              schemas = require('schemastore').json.schemas(),
+              validate = { enable = true },
+            },
+          },
+        },
       }
 
       ---@type MasonLspconfigSettings
