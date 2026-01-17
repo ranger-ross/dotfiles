@@ -1,0 +1,63 @@
+{
+    "$schema": "/etc/xdg/swaync/configSchema.json",
+    "positionX": "right",
+    "positionY": "top",
+    "layer": "overlay",
+    "control-center-layer": "top",
+    "layer-shell": true,
+    "cssPriority": "user",
+    "control-center-margin-top": 8,
+    "control-center-margin-bottom": 8,
+    "control-center-margin-right": 8,
+    "control-center-margin-left": 8,
+    "notification-2fa-action": true,
+    "notification-inline-replies": false,
+    "notification-window-width": 300,
+    "timeout": 6,
+    "fit-to-screen": false,
+    "image-visibility": "always",
+    "transition-time": 200,
+    "hide-on-clear": false,
+    "hide-on-action": true,
+    "script-fail-notify": true,
+    "widgets": [
+        "buttons-grid",
+        "volume",
+        "backlight",
+        "title",
+        "notifications"
+    ],
+    "widget-config": {
+        "title": {
+            "text": "Notifications",
+            "clear-all-button": true,
+            "button-text": "Clear All"
+        },
+        "volume": {
+            "label": "󰕾"
+        },
+        "backlight": {
+            "label": "󰃟"
+        },
+        "buttons-grid": {
+            "actions": [
+                {
+                    "label": "",
+                    "command": "swaync-client -cp && better-control"
+                },
+                {
+                    "label": "",
+                    "command": "swaync-client -cp && loginctl lock-session"
+                },
+                {
+                    "label": "󰑓",
+                    "command": "echo -e 'Yes\nNo' | vicinae dmenu --section-title 'Are you sure you want to reboot?' | grep -q 'Yes' && reboot"
+                },
+                {
+                    "label": "󰐥",
+                    "command": "echo -e 'Yes\nNo' | vicinae dmenu --section-title 'Are you sure you want to shutdown?' | grep -q 'Yes' && shutdown"
+                }
+            ]
+        }
+    }
+}

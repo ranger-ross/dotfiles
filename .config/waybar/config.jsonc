@@ -60,24 +60,24 @@
         "on-click": "better-control --wifi"
     },
     "pulseaudio": {
-      "scroll-step": 5,
-      "format": "{icon}  {volume}%",
-      "format-bluetooth": " {icon} {volume}% {format_source}",
-      "format-bluetooth-muted": "  {icon} {format_source}",
-      "format-muted": "  {format_source}",
-      "format-source-muted": "",
-      "format-icons": {
-        "default": [
-          "",
-          "",
-          ""
-        ]
-      },
-      "on-click": "better-control --volume"
+        "scroll-step": 5,
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": " {icon} {volume}% {format_source}",
+        "format-bluetooth-muted": "  {icon} {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source-muted": "",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "swaync-client -t -swb -R -rs"
     },
     "custom/control-center": {
         "format": "",
-        "on-click": "better-control"
+        "on-click": "swaync-client -t -swb -R -rs"
     },
     "custom/screenshot": {
         "format": "󰄀",
