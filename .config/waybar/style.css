@@ -16,6 +16,10 @@ window#waybar.hidden {
     border-bottom: 3px solid transparent;
 }
 
+#workspaces button:hover {
+    background-color: rgba(145, 168, 186, 0.15);
+}
+
 #workspaces button.focused {
     background: #64727D;
     border-bottom: 3px solid #ffffff;
