@@ -2,9 +2,22 @@
     "layer": "top",
     "position": "top",
     "height": 36,
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray", "network", "pulseaudio", "battery", "custom/screenshot", "custom/picker", "custom/control-center"],
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "network",
+        "pulseaudio",
+        "battery",
+        "custom/screenshot",
+        "custom/picker",
+        "custom/control-center"
+    ],
     // Modules configuration
     "idle_inhibitor": {
         "format": "{icon}",
@@ -36,8 +49,14 @@
     },
     "backlight": {
         "format": "{percent}% {icon}",
-        "states": [0,50],
-        "format-icons": ["", ""]
+        "states": [
+            0,
+            50
+        ],
+        "format-icons": [
+            "",
+            ""
+        ]
     },
     "battery": {
         "states": {
@@ -48,7 +67,14 @@
         "format": "{icon}   {capacity}%",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "on-click": "better-control --battery"
     },
     "network": {
         "format-wifi": " ",
