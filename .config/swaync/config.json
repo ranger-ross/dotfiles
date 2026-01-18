@@ -43,23 +43,23 @@
             "actions": [
                 {
                     "label": "",
-                    "command": "swaync-client -cp && better-control"
+                    "command": "bash -c $HOME/.config/swaync/scripts/open-settings.sh"
                 },
                 {
                     "label": "",
-                    "command": "swaync-client -cp && loginctl lock-session"
+                    "command": "bash -c $HOME/.config/swaync/scripts/lock.sh"
                 },
                 {
                     "label": "󰤄",
-                    "command": "swaync-client -cp && systemctl suspend"
+                    "command": "bash -c $HOME/.config/swaync/scripts/sleep.sh"
                 },
                 {
                     "label": "󰑓",
-                    "command": "echo -e 'Yes\nNo' | vicinae dmenu --section-title 'Are you sure you want to reboot?' | grep -q 'Yes' && reboot"
+                    "command": "bash -c $HOME/.config/swaync/scripts/reboot.sh"
                 },
                 {
                     "label": "󰐥",
-                    "command": "echo -e 'Yes\nNo' | vicinae dmenu --section-title 'Are you sure you want to shutdown?' | grep -q 'Yes' && shutdown"
+                    "command": "bash -c $HOME/.config/swaync/scripts/shutdown.sh"
                 }
             ]
         }
