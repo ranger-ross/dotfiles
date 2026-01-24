@@ -58,6 +58,10 @@
                     "command": "bash -c $HOME/.config/swaync/scripts/reboot.sh"
                 },
                 {
+                    "label": "󰍃",
+                    "command": "bash -c $HOME/.config/swaync/scripts/logout.sh"
+                },
+                {
                     "label": "󰐥",
                     "command": "bash -c $HOME/.config/swaync/scripts/shutdown.sh"
                 }
