@@ -520,6 +520,7 @@ require('lazy').setup({
             },
           },
         },
+        yamlls = {},
       }
 
       ---@type MasonLspconfigSettings
