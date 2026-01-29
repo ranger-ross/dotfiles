@@ -119,6 +119,11 @@ command_not_found_handle() {
     return 1
 }
 
+
+if command -v fnm &> /dev/null; then
+  eval "$(fnm env)"
+fi
+
 # pnpm
 export PNPM_HOME="/home/ross/.local/share/pnpm"
 case ":$PATH:" in
