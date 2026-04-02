@@ -68,6 +68,10 @@ alias gckm='git checkout $(git branch | cut -c 3- | grep -E "^master$|^main$")'
 alias gal='git add . && git status'
 alias gl='git --no-pager log --oneline -n 20'
 
+if command -v bat &> /dev/null; then
+  alias cat='bat --paging=never'
+fi
+
 if [[ $(uname) == "Linux" ]]; then
   alias open='nautilus'
   alias pbcopy='xclip -selection clipboard'
