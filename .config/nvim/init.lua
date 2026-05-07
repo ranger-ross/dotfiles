@@ -555,6 +555,7 @@ require('lazy').setup({
             },
           },
         },
+        tailwindcss = {},
       }
 
       ---@type MasonLspconfigSettings
