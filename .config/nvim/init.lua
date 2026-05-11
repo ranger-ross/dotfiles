@@ -492,6 +492,10 @@ require('lazy').setup({
             ['rust-analyzer'] = {
               cargo = {
                 allFeatures = true,
+                extraEnv = {
+                  -- This is not an offical env var, I just use it to disable build scripts in personal projects
+                  RUST_ANALYZER = 'true',
+                },
               },
               completion = {
                 postfix = {
