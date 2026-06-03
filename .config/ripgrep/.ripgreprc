@@ -1,0 +1,6 @@
+# Ripgrep config
+# See https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#configuration-file
+
+--hidden
+--glob=!Cargo.lock
+--glob=!.git/*

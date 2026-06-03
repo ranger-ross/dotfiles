@@ -141,6 +141,8 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE=fcitx
 
+export RIPGREP_CONFIG_PATH=~/.config/ripgrep/.ripgreprc
+
 # Make cursor a vertical line
 echo -en "\033[6 q"
 
