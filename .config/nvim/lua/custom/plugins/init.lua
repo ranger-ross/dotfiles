@@ -125,4 +125,48 @@ return {
   },
   { 'hiphish/rainbow-delimiters.nvim' },
   { 'b0o/schemastore.nvim' },
+  {
+    'MagicDuck/grug-far.nvim',
+    keys = {
+      {
+        '<leader>sr',
+        function()
+          local width = math.floor(vim.o.columns * 0.8)
+          local height = math.floor(vim.o.lines * 0.8)
+          local buf = vim.api.nvim_create_buf(false, true)
+          vim.api.nvim_open_win(buf, true, {
+            relative = 'editor',
+            width = width,
+            height = height,
+            row = math.floor((vim.o.lines - height) / 2),
+            col = math.floor((vim.o.columns - width) / 2),
+            border = 'rounded',
+            style = 'minimal',
+          })
+          require('grug-far').open { windowCreationCommand = 'buffer ' .. buf }
+        end,
+        desc = '[S]earch [R]eplace (float)',
+      },
+    },
+    config = function()
+      require('grug-far').setup {}
+
+      vim.api.nvim_create_autocmd('FileType', {
+        group = vim.api.nvim_create_augroup('grug-far-float-keys', { clear = true }),
+        pattern = 'grug-far',
+        callback = function(ev)
+          vim.keymap.set('n', '<Esc>', function()
+            local win = vim.api.nvim_get_current_win()
+            local inst = require('grug-far').get_instance(0)
+            if inst then
+              inst:close()
+            end
+            if vim.api.nvim_win_is_valid(win) then
+              vim.api.nvim_win_close(win, true)
+            end
+          end, { buffer = ev.buf, nowait = true, desc = 'Close grug-far' })
+        end,
+      })
+    end,
+  },
 }
