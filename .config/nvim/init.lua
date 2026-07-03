@@ -502,6 +502,9 @@ require('lazy').setup({
                   enable = false,
                 },
               },
+              diagnostics = {
+                disabled = { 'inactive-code' },
+              },
             },
           },
         },
