@@ -16,7 +16,7 @@ hl.config({
 		follow_mouse = 0,
 		touchpad = {
 			tap_to_click = true,
-			natural_scroll = true,
+			clickfinger_behavior = true,
 		},
 	},
 	general = {
@@ -29,6 +29,13 @@ hl.config({
 		rounding = 12,
 		active_opacity = 1.0,
 		inactive_opacity = 1.0,
+		blur = {
+			enabled = true,
+			size = 4,
+			passes = 3,
+			new_optimizations = true,
+			xray = true,
+		},
 		shadow = {
 			enabled = true,
 			range = 30,
@@ -79,6 +86,13 @@ hl.window_rule({
 hl.window_rule({ match = { class = "^(zoom)$" }, float = true })
 hl.layer_rule({ match = { namespace = "^(quickshell)$" }, no_anim = true })
 hl.layer_rule({ match = { namespace = "^dms:.*" }, no_anim = true })
+
+-- Autofocus window -- e.g. focus on the browser when clicking a link in another application
+hl.window_rule({
+	name = "autofocus-window",
+	focus_on_activate = true,
+	match = { class = ".*" },
+})
 
 require("dms.colors")
 require("dms.outputs")
