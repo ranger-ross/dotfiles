@@ -72,6 +72,12 @@ if command -v bat &> /dev/null; then
   alias cat='bat --paging=never'
 fi
 
+if command -v eza >/dev/null; then
+    alias ls="eza --icons --group-directories-first"
+    alias la="eza -a --icons --group-directories-first"
+    alias ll="eza -l --icons --group-directories-first"
+fi
+
 if [[ $(uname) == "Linux" ]]; then
   alias open='nautilus'
   alias pbcopy='xclip -selection clipboard'
