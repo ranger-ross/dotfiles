@@ -112,7 +112,28 @@ return {
     'folke/noice.nvim',
     event = 'VeryLazy',
     opts = {
-      -- add any options here
+      routes = {
+        {
+          filter = {
+            event = 'msg_show',
+            kind = '',
+            any = {
+              { find = '%d+ lines yanked' }, -- yank messages
+              { find = '; before #%d+' }, -- undo/redo messages
+              { find = '; after #%d+' },
+              { find = '%d+ fewer lines' }, -- delete/change messages
+              { find = '%d+ more lines' },
+              { find = '%d+ lines? .ed' }, -- "N lines changed/deleted/moved"
+              { find = 'written' }, -- :w messages
+            },
+          },
+          opts = { skip = true },
+        },
+        {
+          filter = { event = 'msg_show', kind = 'search_count' },
+          opts = { skip = true },
+        },
+      },
     },
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
