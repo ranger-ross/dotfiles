@@ -9,6 +9,22 @@ hl.on("hyprland.start", function()
 end)
 -- DMS_STARTUP_END
 
+-- Desktop: LG UltraGear+
+hl.monitor({
+	output = "desc:LG Electronics LG ULTRAGEAR+ 510NTXRKF666",
+	mode = "2560x1440@280",
+	position = "auto",
+	scale = 1,
+})
+
+-- Fallback for anything else (laptop panel, spare monitors, etc.)
+hl.monitor({
+	output = "",
+	mode = "preferred",
+	position = "auto",
+	scale = "auto",
+})
+
 hl.config({
 	input = {
 		kb_layout = "us",
