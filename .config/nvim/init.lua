@@ -528,14 +528,36 @@ require('lazy').setup({
           },
         },
         yamlls = {},
-        ts_ls = {
+        tsgo = {
           filetypes = {
-            'typescript',
-            'typescriptreact',
-            'typescript.tsx',
             'javascript',
             'javascriptreact',
             'javascript.jsx',
+            'typescript',
+            'typescriptreact',
+            'typescript.tsx',
+          },
+          settings = {
+            typescript = {
+              inlayHints = {
+                parameterNames = { enabled = 'none' },
+                parameterTypes = { enabled = false },
+                variableTypes = { enabled = false },
+                propertyDeclarationTypes = { enabled = false },
+                functionLikeReturnTypes = { enabled = false },
+                enumMemberValues = { enabled = false },
+              },
+            },
+            javascript = {
+              inlayHints = {
+                parameterNames = { enabled = 'none' },
+                parameterTypes = { enabled = false },
+                variableTypes = { enabled = false },
+                propertyDeclarationTypes = { enabled = false },
+                functionLikeReturnTypes = { enabled = false },
+                enumMemberValues = { enabled = false },
+              },
+            },
           },
         },
         tailwindcss = {},
