@@ -69,7 +69,7 @@ alias jpi='git commit -m "just pushing it" && git push'
 alias c='clear'
 alias gckm='git checkout $(git branch | cut -c 3- | grep -E "^master$|^main$")'
 alias gal='git add . && git status'
-alias gl='git --no-pager log --oneline -n 20'
+alias gl='git --no-pager log --oneline -n 15'
 
 if command -v bat &> /dev/null; then
   alias cat='bat --paging=never'
