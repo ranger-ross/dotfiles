@@ -110,6 +110,9 @@ hl.window_rule({
 	match = { class = ".*" },
 })
 
+-- Make sure the cursor gets set correctly
+hl.config({ cursor = { enable_hyprcursor = false } })
+
 require("dms.colors")
 require("dms.outputs")
 require("dms.layout")
