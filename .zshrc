@@ -83,8 +83,14 @@ fi
 
 if [[ $(uname) == "Linux" ]]; then
   alias open='nautilus'
-  alias pbcopy='xclip -selection clipboard'
-  alias pbpaste='xclip -selection clipboard -o'
+
+  if [[ -n "$WAYLAND_DISPLAY" ]] && command -v wl-copy >/dev/null; then
+    alias pbcopy='wl-copy'
+    alias pbpaste='wl-paste --no-newline'
+  elif command -v xclip >/dev/null; then
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+  fi
 fi
 
 function gr() {
