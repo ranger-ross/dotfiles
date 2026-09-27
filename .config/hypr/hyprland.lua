@@ -120,3 +120,37 @@ require("dms.cursor")
 require("dms.binds")
 require("dms.binds-user")
 require("dms.windowrules")
+
+-- Keep this after DMS imports so layout reloads respect the current lid state.
+-- Switch bindings handle lid changes without a configuration reload.
+-- Desktops without this laptop's lid device skip the entire block.
+local lid_file = io.open("/proc/acpi/button/lid/LID0/state", "r")
+if lid_file then
+	local lid_text = lid_file:read("*a")
+	lid_file:close()
+
+	local lid_state = lid_text:match("state:%s*(%a+)")
+	assert(lid_state == "open" or lid_state == "closed", "Unexpected lid state")
+
+	local function set_lid_closed(closed)
+		hl.monitor({
+			output = "eDP-1",
+			disabled = closed,
+		})
+	end
+
+	local lid_bind_options = {
+		locked = true,
+		submap_universal = true,
+	}
+
+	hl.bind("switch:on:Lid Switch", function()
+		set_lid_closed(true)
+	end, lid_bind_options)
+
+	hl.bind("switch:off:Lid Switch", function()
+		set_lid_closed(false)
+	end, lid_bind_options)
+
+	set_lid_closed(lid_state == "closed")
+end
