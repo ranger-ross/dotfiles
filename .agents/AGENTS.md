@@ -7,3 +7,9 @@
 * Avoid "Not X but Y" patterns
 * Avoid One-line closers and dramatic fragments
 
+For documentation cleanup, update existing docs only when the change makes
+documented user-facing behavior inaccurate or incomplete. Otherwise leave
+docs unchanged. Keep README changes limited to user-facing usage. Do not
+add implementation details, internal architecture notes, or verification
+narratives unless I explicitly request them.
+
