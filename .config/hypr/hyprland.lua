@@ -125,3 +125,6 @@ require("dms.cursor")
 require("dms.binds")
 require("dms.binds-user")
 require("dms.windowrules")
+
+-- Apply lid policy after DMS loads its display layout.
+require("clamshell")
