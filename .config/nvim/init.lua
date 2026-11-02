@@ -716,8 +716,13 @@ require('lazy').setup({
     end,
     init = function()
       vim.cmd.colorscheme 'onedark'
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = '#8b929e' })    -- gray hints
+      vim.cmd.hi 'Comment gui=none guifg=#39ff14'                   -- green comments
+      vim.cmd.hi '@comment guifg=#39ff14'                           -- green comments
+      vim.cmd.hi '@comment.documentation guifg=#228b22'             -- darker green doc comments
+      vim.cmd.hi 'SpecialComment guifg=#228b22'                     -- darker green special comments
+      vim.api.nvim_set_hl(0, '@lsp.type.comment', {})               -- keep syntax comment colors
+      vim.cmd.hi '@lsp.typemod.comment.documentation guifg=#228b22' -- darker green doc comments
     end,
   },
 
