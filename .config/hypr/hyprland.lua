@@ -31,6 +31,9 @@ hl.monitor({
 })
 
 hl.config({
+	render = {
+		cm_auto_hdr = 0,
+	},
 	input = {
 		kb_layout = "us",
 		numlock_by_default = true,
