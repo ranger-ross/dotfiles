@@ -85,26 +85,28 @@ return {
   },
   {
     'petertriho/nvim-scrollbar',
+    branch = 'refactor/v2', -- FIXME: v2 moves to main on 2026-11-16.
     config = function()
       require('scrollbar').setup {
-        show = true,
-        handlers = {
+        providers = {
           gitsigns = true,
         },
-        handle = {
-          blend = 0,
-          text = ' ',
-          color = '#1c1c1c',
-          color_nr = 234,
+        scrollbar = {
+          show = true,
+          thumb = {
+            blend = 0,
+            text = ' ',
+            highlight = { bg = '#1c1c1c', ctermbg = 234 },
+          },
         },
         marks = {
-          Search = { color = '#C9A554' },
-          Error = { color = '#685742' },
-          Warn = { color = '#B36D43' },
-          Info = { color = '#5f875f' },
-          Hint = { color = '#5f875f' },
-          Misc = { color = '#bb7744' },
-          Cursor = { color = '#222222', text = ' ' },
+          Search = { highlight = { fg = '#C9A554' } },
+          Error = { highlight = { fg = '#685742' } },
+          Warn = { highlight = { fg = '#B36D43' } },
+          Info = { highlight = { fg = '#5f875f' } },
+          Hint = { highlight = { fg = '#5f875f' } },
+          Misc = { highlight = { fg = '#bb7744' } },
+          Cursor = { highlight = { fg = '#222222' }, text = ' ' },
         },
       }
     end,
